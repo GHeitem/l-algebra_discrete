@@ -1,0 +1,66 @@
+void Get_Max(relation A, int size, const t_point *M, t_point *res){
+	int i;
+	for ( i = 0; i < size; i++){
+		for (int j = 0; j < size; j++){
+			if (A[i][j]){
+				break;
+			}
+		}
+	};
+	if (i < size){
+		*res = M[i];
+	}
+	else
+	{
+		res = NULL;
+	}
+};
+
+void Get_Min(relation A, int size, const t_point *M, t_point *res){
+	int i;
+	for (i = 0; i < size; i++){
+		for (int j = 0; j < size; j++){
+			if (A[j][i]){
+				break;
+			}
+		}
+	};
+	if (i < size){
+		*res = M[i];
+	}
+	else
+	{
+		res = NULL;
+	}
+};
+
+void Get_H(relation A, int size, const t_point *M, t_point *res,int *q){
+	int k=0,i,j;
+	for (i = 0; i < size; i++){
+		for ( j = 0; j < size; j++){
+			if (A[j][i]&&!A[i][j]){
+				break;
+			}
+		}
+		if (j >= size){
+			res[k++] = M[i];
+		}
+	};
+	*q = k;
+};
+
+void Get_L(relation A, int size, const t_point *M, t_point *res,int *q){
+	int k = 0, i, j;
+	for (i = 0; i < size; i++){
+		for (j = 0; j < size; j++){
+			if (A[j][i] && !A[i][j]){
+				break;
+			}
+		}
+		if (j >= size){
+			res[k++] = M[i];
+		}
+	};
+	*q = k;
+};
+
